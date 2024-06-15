@@ -1,4 +1,4 @@
-# Project - Cuemath-Assignment
+# Project - Cuemath Assignment
 
 ## Getting Started
 
