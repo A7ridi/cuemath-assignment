@@ -1,50 +1,54 @@
-import { Text, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import React, { useState } from "react";
 import Navbar from "./Navbar";
 import { styles } from "./dashboard.style";
-import Button from "../button/Button";
-import { BottomSheet, ListItem } from "@rneui/themed";
+import { BottomSheet } from "@rneui/themed";
 import CustomCarousel from "../carousel/CustomCarousel";
+import CustomWebview from "../webview/CustomWebview";
+import CurvedButton from "../button/CurvedButton";
 
-const Dashboard = ({ email, setUserData }) => {
+const Dashboard = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const list = [
-    { title: "List Item 1" },
-    { title: "List Item 2" },
-    {
-      title: "Cancel",
-      containerStyle: { backgroundColor: "red" },
-      titleStyle: { color: "white" },
-      onPress: () => setIsVisible(false),
-    },
-  ];
+  const [webViewVisible, setWebViewVisible] = useState(false);
+
   const bottomSheetHandler = () => {
-    setIsVisible(true);
+    setIsVisible(!isVisible);
   };
+
+  if (webViewVisible) {
+    return <CustomWebview setWebViewVisible={setWebViewVisible} />;
+  }
+
   return (
     <View style={styles.container}>
-      <Navbar email={email} setUserData={setUserData} />
+      <Navbar />
 
-      <CustomCarousel bottomSheetHandler={bottomSheetHandler} />
-
-      <Button
-        title={"Bottom Sheet"}
-        width="100%"
-        onPress={bottomSheetHandler}
+      <CustomCarousel
+        setWebViewVisible={setWebViewVisible}
+        bottomSheetHandler={bottomSheetHandler}
       />
 
-      <BottomSheet modalProps={{}} isVisible={isVisible}>
-        {list.map((l, i) => (
-          <ListItem
-            key={i}
-            containerStyle={l.containerStyle}
-            onPress={l.onPress}
+      <CurvedButton onPress={bottomSheetHandler} />
+
+      <BottomSheet isVisible={isVisible} onBackdropPress={bottomSheetHandler}>
+        <View style={styles.bottomSheetContainer}>
+          <TouchableOpacity
+            style={styles.buttonIcon}
+            onPress={bottomSheetHandler}
           >
-            <ListItem.Content>
-              <ListItem.Title style={l.titleStyle}>{l.title}</ListItem.Title>
-            </ListItem.Content>
-          </ListItem>
-        ))}
+            <Image
+              source={require("../../assets/images/carrot.png")}
+              style={styles.icon}
+            />
+          </TouchableOpacity>
+
+          <View style={styles.bottomSheetContent}>
+            <Text style={styles.bottomSheetText}>
+              This is a <Text style={{ fontWeight: "700" }}>bottom sheet</Text>,
+              launched by tapping the lottie or swiping up
+            </Text>
+          </View>
+        </View>
       </BottomSheet>
     </View>
   );
