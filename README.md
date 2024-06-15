@@ -14,13 +14,11 @@ To run this application, you need to have the Expo Go app installed. It is avail
    git clone https://github.com/A7ridi/cuemath-assignment.git
    ```
 
-````
-
 2. Install dependencies:
 
    ```sh
    npm install
-````
+   ```
 
 ## Running Locally
 
@@ -54,8 +52,3 @@ To run the application locally:
 
 - If you encounter any issues, ensure that your development environment and dependencies are correctly set up as per the instructions above.
 - For further assistance, refer to the Expo documentation or community forums.
-
-```
-
-Replace `<repo_link>` with your actual repository link. This `README.md` file provides step-by-step instructions on how to install dependencies, run the application locally, and troubleshoot common issues.
-```
