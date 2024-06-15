@@ -1,4 +1,3 @@
-````markdown
 # Project - Cuemath-Assignment
 
 ## Getting Started
@@ -12,27 +11,28 @@ To run this application, you need to have the Expo Go app installed. It is avail
 1. Clone the repository:
 
    ```sh
-   git clone <repo_link>
+   git clone https://github.com/A7ridi/cuemath-assignment.git
    ```
+
 ````
 
 2. Install dependencies:
 
    ```sh
    npm install
-   ```
+````
 
 ## Running Locally
 
 To run the application locally:
 
-1. Start the Expo development server:
+3. Start the Expo development server:
 
    ```sh
    npx expo start
    ```
 
-2. Scan the QR code that appears on the terminal using the Expo Go app on your device.
+4. Scan the QR code that appears on the terminal using the Expo Go app on your device.
 
    If the app doesn't open locally, use tunnel mode:
 
